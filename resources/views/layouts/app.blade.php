@@ -9,7 +9,7 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Rizer') }}</title>
+    <title>{{ config('app.name', 'AGED') }}</title>
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
 
 <body class="skin-blue">
     <header class="header">
-        <a href="{{ URL('/') }}" class="logo bgpersonalizado">{{ config('app.name', 'Rizer') }}</a>
+        <a href="{{ URL('/') }}" class="logo bgpersonalizado">{{ config('app.name', 'AGED') }}</a>
         <nav class="navbar navbar-static-top bgpersonalizado" role="navigation">
             <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
                 <span class="sr-only">Toggle navigation</span>
@@ -37,7 +37,7 @@
             <div class="navbar-right">
                 <ul class="nav navbar-nav">
                     <li class="dropdown user user-menu">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user"></i>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <i class="glyphicon glyphicon-user">{{ Auth::user()->username }}</i>
                             <span> <i class="caret"></i>
                             </span>
                         </a>
@@ -141,7 +141,7 @@
 
     </div>
 
-    <footer class="footer">© 2018 - Todos os direitos reservados</footer>
+    <footer class="footer">&copy; Coordenadoria de Informática - AGED, {{ date("Y") }} - Todos os direitos reservados</footer>
 
     <script type="text/javascript" src="{{ asset('js/jquery-2.0.3.min.js') }}"></script>
 

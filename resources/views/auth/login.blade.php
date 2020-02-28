@@ -22,7 +22,7 @@
                               </div>
                             @endif
                             
-                            <a href="{{ URL('/') }}" class="logo-name text-lg text-center">{{ config('app.name', 'Laravel') }}</a>
+                            <a href="{{ URL('/') }}" class="logo-name text-lg text-center">{{ config('app.name', 'AGED') }}</a>
                             <p class="text-center m-t-md">Faça login na sua conta.</p>
                             <form class="m-t-md" role="form" method="POST" action="{{ url('/login') }}">
                                 {{ csrf_field() }}
@@ -44,11 +44,11 @@
                                 </div>
                                 <button type="submit" class="btn btn-success btn-block">Login</button>
 
-                                <a href="{{ url('/password/reset') }}" class="display-block text-center m-t-md text-sm">Esqueceu a senha?</a>
+                                <!--<a href="url('/password/reset') }}" class="display-block text-center m-t-md text-sm">Esqueceu a senha?</a>
                                 <p class="text-center m-t-xs text-sm">Não tem uma conta?</p>
-                                <a href="{{ url('/register') }}" class="btn btn-info btn-block m-t-md">Criar uma conta</a>
+                                <a href="url('/register') }}" class="btn btn-info btn-block m-t-md">Criar uma conta</a>-->
                             </form>
-                            <p class="text-center m-t-xs text-sm">2018 &copy; Rizer.com.br</p>
+                            <p class="text-center m-t-xs text-sm">Coordenadoria de Informática, {{ date("Y") }} &copy; aged.ma.gov.br</p>
                         </div>
                     </div>
                 </div><!-- Row -->

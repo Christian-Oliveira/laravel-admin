@@ -44,7 +44,7 @@
         <table id="datatable" class="display table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Código</th>
+                    <th>ID</th>
                     <th>Nome</th>
                     <th>O usuário com este perfil tem acesso completo ao sistema?</th>
                     <th>O usuário com este perfil pode ver dados de outros usuários?</th>
@@ -67,18 +67,18 @@
                     
                     <td>
 
-                        <a href="{{ URL('/') }}/profiles/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default">
+                        <a href="{{ URL('/') }}/profiles/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
 
-                        <a href="{{ URL('/') }}/profiles/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default">
+                        <a href="{{ URL('/') }}/profiles/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-share-alt"></span>
                         </a>
 
                         <form method="POST" action="{{ route('profiles.destroy', $value->id) }}" accept-charset="UTF-8">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
-                            <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash">
+                            <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash btn-sm">
                         </form>
 
                     </td>

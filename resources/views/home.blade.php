@@ -7,7 +7,7 @@
         <div class="page-header">
             <div class="jumbotron">
                 <h2>
-                    <p><p>Seja bem-vindo(a)!</p></p>
+                    <p>Seja bem-vindo(a)!</p>
                 </h2>
             </div>
         </div>
@@ -36,7 +36,7 @@
 							<span class="info-box-number">{{$count}}</span>
 							
 							@if($value->link != '')
-								<a href="{{$value->link}}" target="_blank">
+								<a href="{{$value->link}}">
 							@endif
 							
 							<p>{{$value->name}}</p>
