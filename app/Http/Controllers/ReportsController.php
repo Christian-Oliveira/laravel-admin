@@ -26,7 +26,7 @@ class ReportsController extends Controller
             $reports = Reports::where('r_auth', $logged->id)->get();
         }
 
-        Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de relatórios'));
+        //Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de relatórios'));
 
         return view('reports.index', ['reports' => $reports]);
     }

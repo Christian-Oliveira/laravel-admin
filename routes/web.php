@@ -28,6 +28,7 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::resource('permissions', 'PermissionsController');
 		Route::resource('profiles', 'ProfilesController');
 		Route::resource('logs', 'LogsController');
+		Route::resource('units', 'UnitsController');
 	});
 	
 });

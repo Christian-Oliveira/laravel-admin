@@ -65,42 +65,56 @@
 
                     <li id="principal">
                         <a href="{{ URL('/') }}">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-th-large"></i>
                             <span>Principal</span>
                         </a>
                     </li>
 
                     <li id='users'>
                         <a href="{{ URL('/') }}/users">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-user"></i>
                             <span>Usuários</span>
+                        </a>
+                    </li>
+
+                    <li id='sectors'>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-list"></i>
+                            <span>Setores</span>
+                        </a>
+                    </li>
+
+                    <li id='units'>
+                        <a href="{{ URL('/') }}/units">
+                            <i class="glyphicon glyphicon-th-list"></i>
+                            <span>Unidades Regionais</span> 
                         </a>
                     </li>
 
                     <li id='profiles'>
                         <a href="{{ URL('/') }}/profiles">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-eye-open"></i>
                             <span>Perfis de acesso</span>
                         </a>
                     </li>
 
                     <li id='indicators'>
                         <a href="{{ URL('/') }}/indicators">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-tags"></i>
                             <span>Indicadores</span>
                         </a>
                     </li>
 
                     <li id='logs'>
                         <a href="{{ URL('/') }}/logs">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-saved"></i>
                             <span>Logs</span>
                         </a>
                     </li>
 
                     <li id='reports'>
                         <a href="{{ URL('/') }}/reports">
-                            <i class="glyphicon glyphicon-list"></i>
+                            <i class="glyphicon glyphicon-list-alt"></i>
                             <span>Relatórios</span>
                         </a>
                     </li>

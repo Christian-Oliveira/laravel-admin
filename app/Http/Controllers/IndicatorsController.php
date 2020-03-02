@@ -24,7 +24,7 @@ class IndicatorsController extends Controller
             $indicators = Indicators::where('r_auth', $logged->id)->get();
         }
 
-        Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de indicadores'));
+        //Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de indicadores'));
 
         return view('indicators.index', ['indicators' => $indicators]);
     }

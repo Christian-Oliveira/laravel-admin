@@ -24,7 +24,7 @@ class ProfilesController extends Controller
             $profiles = Profiles::where('r_auth', $logged->id)->orWhere('default', 1)->get();
         }
     
-        Logs::cadastrar($logged->id, ($logged->name . ' vizualizou a lista de perfis'));
+        //Logs::cadastrar($logged->id, ($logged->name . ' vizualizou a lista de perfis'));
 
         return view('profiles.index', ['profiles' => $profiles]);
     }

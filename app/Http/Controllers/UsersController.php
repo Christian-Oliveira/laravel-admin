@@ -30,7 +30,7 @@ class UsersController extends Controller
             $users = User::where('r_auth', $logged->id)->orWhere('id', $logged->id)->get();
         }
 
-        Logs::cadastrar($logged->id, ($logged->name . ' visualizou a lista de usuários'));
+        //Logs::cadastrar($logged->id, ($logged->name . ' visualizou a lista de usuários'));
 
         return view('users.index', [
             'users' => $users

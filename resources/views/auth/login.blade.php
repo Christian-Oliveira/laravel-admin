@@ -27,10 +27,10 @@
                             <form class="m-t-md" role="form" method="POST" action="{{ url('/login') }}">
                                 {{ csrf_field() }}
                                 <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="E-mail" required>
-                                    @if ($errors->has('email'))
+                                    <input type="text" name="username" class="form-control" placeholder="Nome de Usuário" required>
+                                    @if ($errors->has('username'))
                                         <span class="help-block">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>{{ $errors->first('username') }}</strong>
                                         </span>
                                     @endif
                                 </div>

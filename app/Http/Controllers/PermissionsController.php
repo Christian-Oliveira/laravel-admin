@@ -37,7 +37,7 @@ class PermissionsController extends Controller
         
         $user = User::find($id);
 
-        Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de permissões'));
+        //Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' vizualizou a lista de permissões'));
 
         return view('permissions.index', [
             'lista' => $controllers,
