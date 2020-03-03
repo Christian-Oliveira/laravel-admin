@@ -78,7 +78,7 @@
                     </li>
 
                     <li id='sectors'>
-                        <a href="#">
+                        <a href="{{ URL('/') }}/sectors">
                             <i class="glyphicon glyphicon-list"></i>
                             <span>Setores</span>
                         </a>

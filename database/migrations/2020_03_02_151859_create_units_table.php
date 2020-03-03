@@ -15,10 +15,11 @@ class CreateUnitsTable extends Migration
     {
         Schema::create('r_units', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('type_unit', ['SEDE', 'UR', 'ULSAV', 'EAC', 'BARREIRA']);
+            $table->enum('type_unit', [0=>'SEDE', 1=>'UR', 2=>'ULSAV', 3=>'EAC', 4=>'BARREIRA']);
             $table->string('initials')->nullable();
             $table->string('name');
             $table->boolean('active')->default(1);
+            $table->integer('r_auth')->nullable();
             $table->timestamps();
         });
     }

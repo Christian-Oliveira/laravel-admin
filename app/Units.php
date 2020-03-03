@@ -10,4 +10,12 @@ class Units extends Model
    	protected $primaryKey = 'id';
 
     protected $guarded = ['_token'];
+
+    /**
+     * Get the comments for the blog post.
+     */
+    public function sectors()
+    {
+        return $this->hasMany('App\Sectors');
+    }
 }
