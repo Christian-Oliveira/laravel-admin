@@ -5,17 +5,19 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Funcionario extends Authenticatable
 {
     use Notifiable;
-    
+
+    protected $table = 'dbgeral.tblfuncionario';
+    protected $primaryKey = 'idfuncionario';
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'username', 'email', 'password',
+        'strnome', 'username', 'password',
     ];
 
     /**
@@ -32,4 +34,8 @@ class User extends Authenticatable
         return $this->belongsTo('App\Profiles', 'profile_id');
     }
 
+    public function config()
+    {
+        return $this->belongsTo('App\Config');
+    }
 }

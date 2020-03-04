@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Sectors extends Model
+class Setor extends Model
 {
-    protected $table = 'sectors';
-   	protected $primaryKey = 'id';
+    protected $table = 'tblsetor';
+   	protected $primaryKey = 'intsetorid';
 
     protected $guarded = ['_token'];
 
     /**
      * Get the post that owns the comment.
      */
-    public function unit()
+    public function polos()
     {
-        return $this->belongsTo('App\Units');
+        return $this->belongsTo('App\Polo');
     }
 }

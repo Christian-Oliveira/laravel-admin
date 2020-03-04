@@ -8,7 +8,7 @@
         <h3 class="box-title">Cadastrar usuário</h3>
     </div>
 
-    {!! Form::open(['url' => 'users', 'method' => 'post', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
+    {!! Form::open(['url' => 'funcionarios', 'method' => 'post', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
 
         <div class="box-body">
 
@@ -24,51 +24,7 @@
             </div>
 
             <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="input email required">
-                            {!! Form::label('E-mail') !!}
-                            {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="input file">
-                            {!! Form::label('image', 'Foto do perfil') !!}
-                            {!! Form::file('image', ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="input text required">
-                            {!! Form::label('Profissão') !!}
-                            {!! Form::text('profession', null, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="form-group">
-                        <div class="input text required">
-                            {!! Form::label('Perfil') !!}
-                            {!! Form::select('profile_id', $profiles, $profile_id, ['class' => 'form-control']) !!}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="input text required">
                             {!! Form::label('Usuário') !!}
@@ -76,14 +32,49 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <div class="input password">
+                            {!! Form::label('Senha') !!}
+                            {!! Form::password('password', ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="row">
                 <div class="col-md-12">
                     <div class="form-group">
-                        <div class="input password">
-                            {!! Form::label('Senha') !!}
-                            {!! Form::password('password', ['class' => 'form-control']) !!}
+                        <div class="input text required">
+                            {!! Form::label('Setor') !!}
+                            {!! Form::select('idsetor', $setores, null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input text required">
+                            {!! Form::label('Config') !!}
+                            {!! Form::select('strchave_config', $strchave, null, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input text required">
+                            {!! Form::label('Perfil') !!}
+                            {!! Form::select('profile_id', $profiles, $profile_id, ['class' => 'form-control']) !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <div class="input text required">
+                            {!! Form::label('Status') !!}
+                            {!! Form::select('idstatus', [0 => 'inativo', 1 => 'ativo'], 1, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>

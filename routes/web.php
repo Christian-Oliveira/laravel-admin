@@ -22,14 +22,14 @@ Route::group(['middleware' => ['auth']], function () {
 		Route::post('/profiles/default', 'ProfilesController@defaultProfile');
 		Route::get('/reports/generate/{id}', 'ReportsController@generate');
 
-		Route::resource('users', 'UsersController');
+		Route::resource('funcionarios', 'FuncionarioController');
 		Route::resource('reports', 'ReportsController');
 		Route::resource('indicators', 'IndicatorsController');
 		Route::resource('permissions', 'PermissionsController');
 		Route::resource('profiles', 'ProfilesController');
 		Route::resource('logs', 'LogsController');
-		Route::resource('units', 'UnitsController');
-		Route::resource('sectors', 'SectorsController');
+		Route::resource('polos', 'PoloController');
+		Route::resource('setores', 'SetorController');
 	});
 	
 });

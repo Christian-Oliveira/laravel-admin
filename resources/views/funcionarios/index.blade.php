@@ -13,56 +13,47 @@
         <table id="datatable" class="display table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
-                    <th>Código</th>
+                    <th>ID</th>
                     <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Cargo</th>
                     <th>Usuário</th>
                     <th>Senha</th>
+                    <th>Setor</th>
                     <th>Perfil</th>
-                    <th>Imagem</th>
+                    <th>Config</th>
                     <th></th>
                 </tr>
             </thead>
 
             <tbody>
                 
-                @foreach($users as $value)
+                @foreach($funcionarios as $value)
 
                 <tr>
-                    <td> {{$value->id}} </td>
+                    <td> {{$value->idfuncionario}} </td>
 
-                    <td> {{ucwords(strtolower($value->name))}} </td>
-
-                    <td> {{$value->email}} </td>
-                    
-                    <td> {{$value->profession}} </td>
+                    <td> {{ucwords(strtolower($value->strnome))}} </td>
                         
                     <td> {{$value->username}} </td>
                 
                     <td> ****** </td>
 
+                    <td>{{$value->idsetor}}</td>
+
                     <td> {{ (isset($value->perfil) ? $value->perfil->name : '') }} </td>
 
-                    <td> 
-                        @if($value->image)
-                            <a class="fancybox" rel="gallery1" target="_blank" href="images/{{$value->image}}">
-                                <img src="images/{{$value->image}}" width="30">
-                            </a>
-                        @endif
-                    </td>
+                    <td>{{$value->strchave_config}}</td>
 
                     <td>
 
-                        <a href="{{ URL('/') }}/users/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm">
+                        <a href="{{ URL('/') }}/funcionarios/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
 
-                        <a href="{{ URL('/') }}/users/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm">
+                        <a href="{{ URL('/') }}/funcionarios/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-share-alt"></span>
                         </a>
 
-                        <form method="POST" action="{{ route('users.destroy', $value->id) }}" accept-charset="UTF-8">
+                        <form method="POST" action="{{ route('funcionarios.destroy', $value->id) }}" accept-charset="UTF-8">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash btn-sm">
@@ -81,7 +72,7 @@
         <br><br>
 
         <div class="form-group text-right">
-            <a href="{{ URL('/') }}/users/create" class="btn btn-primary bgpersonalizado">Cadastrar</a>
+            <a href="{{ URL('/') }}/funcionarios/create" class="btn btn-primary bgpersonalizado">Cadastrar</a>
         </div>
 
     </div>

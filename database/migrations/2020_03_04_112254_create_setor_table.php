@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSectorsTable extends Migration
+class CreateSetorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,16 @@ class CreateSectorsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sectors', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('tblsetor', function (Blueprint $table) {
+            $table->increments('intsetorid');
             $table->string('strsetor');
-            $table->string('strsigla');
-            $table->boolean('bolativo');
-            $table->integer('units_id')->unsigned();
+            $table->string('strsigla')->nullable();
+            $table->integer('idpolo')->unsigned();
+            $table->boolean('bolativo')->deafult(1);
             $table->timestamps();
 
-            $table->foreign('units_id')
-                ->references('id')->on('r_units')
+            $table->foreign('idpolo')
+                ->references('intpoloid')->on('tblpolo')
                 ->onDelete('cascade');
         });
     }
@@ -34,6 +34,6 @@ class CreateSectorsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sectors');
+        Schema::dropIfExists('tblsetor');
     }
 }

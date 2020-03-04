@@ -4,18 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Units extends Model
+class Polo extends Model
 {
-    protected $table = 'r_units';
-   	protected $primaryKey = 'id';
+    protected $table = 'tblpolo';
+   	protected $primaryKey = 'intpoloid';
 
     protected $guarded = ['_token'];
 
     /**
      * Get the comments for the blog post.
      */
-    public function sectors()
+    public function setores()
     {
-        return $this->hasMany('App\Sectors');
+        return $this->hasMany('App\Setor');
     }
 }

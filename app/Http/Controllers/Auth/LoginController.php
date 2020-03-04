@@ -61,7 +61,7 @@ class LoginController extends Controller
 		return $this->guard()->attempt(
 			['username' =>  $request->username,
             'password' => $request->password,
-            'status' => 1],
+            'idstatus' => 'ativo'],
             $request->has('remember')
 		);
 	}
