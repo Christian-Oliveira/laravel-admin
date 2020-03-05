@@ -10,16 +10,16 @@
 
     <div class="box-body table-responsive">
 
-        <table id="datatable" class="display table table-striped table-bordered" cellspacing="0" width="100%">
+        <table class="display table table-striped table-bordered" cellspacing="0" width="100%">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Usuário</th>
-                    <th>Senha</th>
                     <th>Setor</th>
                     <th>Perfil</th>
                     <th>Config</th>
+                    <th>Status</th>
                     <th></th>
                 </tr>
             </thead>
@@ -33,9 +33,7 @@
 
                     <td> {{ucwords(strtolower($value->strnome))}} </td>
                         
-                    <td> {{$value->username}} </td>
-                
-                    <td> ****** </td>
+                    <td> {{$value->username}}</td>
 
                     <td>{{$value->idsetor}}</td>
 
@@ -43,17 +41,19 @@
 
                     <td>{{$value->strchave_config}}</td>
 
+                    <td>{{$value->idstatus}}</td>
+
                     <td>
 
-                        <a href="{{ URL('/') }}/funcionarios/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm">
+                        <a href="{{ URL('/') }}/funcionarios/{{$value->idfuncionario}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
 
-                        <a href="{{ URL('/') }}/funcionarios/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm">
+                        <a href="{{ URL('/') }}/funcionarios/{{$value->idfuncionario}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm">
                             <span class="glyphicon glyphicon-share-alt"></span>
                         </a>
 
-                        <form method="POST" action="{{ route('funcionarios.destroy', $value->id) }}" accept-charset="UTF-8">
+                        <form method="POST" action="{{ route('funcionarios.destroy', $value->idfuncionario) }}" accept-charset="UTF-8">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash btn-sm">

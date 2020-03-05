@@ -24,32 +24,36 @@
 
             <tbody>
                 
-                @foreach($sectors as $value)
+                @foreach($setores as $value)
 
                 <tr>
-                    <td> {{$value->id}} </td>
+                    <td> {{$value->intsetorid}} </td>
 
-                    <td> {{$value->units_id}} </td>
+                    <td> {{$value->idpolo}} </td>
                     
-                    <td> 
-                        {{$value->strsetor}}
-                    </td>
+                    <td> {{$value->strsetor}} </td>
 
                     <td> {{$value->strsigla}} </td>
                                         
-                    <td> {{$value->active}} </td>
+                    <td>
+                        @if($value->bolativo)
+                            Ativo
+                        @else
+                            Inativo
+                        @endif
+                    </td>
                     
                     <td>
 
-                        <a href="{{ URL('/') }}/sectors/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default">
+                        <a href="{{ URL('/') }}/setores/{{$value->intsetorid}}/edit" alt="Editar" title="Editar" class="btn btn-default">
                             <span class="glyphicon glyphicon-edit"></span>
                         </a>
 
-                        <a href="{{ URL('/') }}/sectors/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default">
+                        <a href="{{ URL('/') }}/setores/{{$value->intsetorid}}" alt="Visualizar" title="Visualizar" class="btn btn-default">
                             <span class="glyphicon glyphicon-share-alt"></span>
                         </a>
 
-                        <form method="POST" action="{{ route('sectors.destroy', $value->id) }}" accept-charset="UTF-8">
+                        <form method="POST" action="{{ route('setores.destroy', $value->intsetorid) }}" accept-charset="UTF-8">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
                             <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash">
@@ -68,7 +72,8 @@
         <br><br>
 
         <div class="form-group text-right">
-            <a href="{{ URL('/') }}/sectors/create" class="btn btn-primary bgpersonalizado">Cadastrar</a>
+            <a href="{{ URL::previous() }}" class="btn btn-default">Voltar</a>
+            <a href="{{ URL('/') }}/setores/create" class="btn btn-primary bgpersonalizado">Cadastrar</a>
         </div>
 
     </div>

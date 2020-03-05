@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <div class="input text">
                             {!! Form::label('Nome') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('strnome', null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
@@ -74,13 +74,18 @@
                     <div class="form-group">
                         <div class="input text required">
                             {!! Form::label('Status') !!}
-                            {!! Form::select('idstatus', [0 => 'inativo', 1 => 'ativo'], 1, ['class' => 'form-control']) !!}
+                            {!! Form::select('idstatus', [
+                                0 => '------',
+                                1 => 'inativo',
+                                2 => 'ativo',
+                            ], 2, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="form-group text-right">
+                <a href="{{ URL::previous() }}" class="btn btn-default">Voltar</a>
                 {!! Form::submit('Cadastrar', ['class' => 'btn btn-primary bgpersonalizado']) !!}
             </div>
         </div>

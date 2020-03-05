@@ -8,54 +8,56 @@
         <h3 class="box-title">Editar unidade</h3>
     </div>
 
-    {!! Form::open(['url' => 'units/$unit->id', 'method' => 'put', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
+    {!! Form::open(['url' => 'polos/$unit->intpoloid', 'method' => 'put', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
 
         <div class="box-body">
     
-            {!! Form::hidden('id', $unit->id) !!}
+            {!! Form::hidden('id', $unit->intpoloid) !!}
             
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <div class="input text required">
                             {!! Form::label('Tipo de Unidade') !!}
-                            {!! Form::select('type_unit', [
-                                '------',
-                                'SEDE',
-                                'UR',
-                                'ULSAV',
-                                'EAC',
-                                'BARREIRA'
-                            ], $unit->type_unit, ['class' => 'form-control']) !!}
+                            {!! Form::select('inttipopoloid', [
+                                'SEDE' => 'SEDE', 
+                                'UR' => 'UR', 
+                                'ULSAV' => 'ULSAV', 
+                                'EAC' => 'EAC',
+                                'BARREIRA' => 'BARREIRA'
+                            ], $unit->inttipopoloid, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-group">
                         <div class="input text">
-                            {!! Form::label('Sigla') !!}
-                            {!! Form::text('initials', $unit->initials, ['class' => 'form-control']) !!}
+                            {!! Form::label('Nome') !!}
+                            {!! Form::text('strpolo', $unit->strpolo, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-10">
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="input text required">
-                            {!! Form::label('name', 'Nome da Unidade') !!}
-                            {!! Form::text('name', $unit->name, ['class' => 'form-control']) !!}
+                            {!! Form::label('Publicar') !!}
+                            {!! Form::select('bolpublicar', [
+                                'Não' => 'Não',
+                                'Sim' => 'Sim'
+                            ], $unit->bolpublicar, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-6">
                     <div class="form-group">
                         <div class="input text">
                             {!! Form::label('Ativo') !!}
-                            {!! Form::select('active', [
-                                0 => 'Não',
-                                1 => 'Sim'
-                            ], $unit->active, ['class' => 'form-control']) !!}
+                            {!! Form::select('bolativo', [
+                                0 => 'Inativo',
+                                1 => 'Ativo'
+                            ], $unit->bolativo, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>

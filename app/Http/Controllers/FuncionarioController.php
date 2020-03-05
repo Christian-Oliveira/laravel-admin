@@ -27,7 +27,6 @@ class FuncionarioController extends Controller
         $logged = Auth::user();
         
         $funcionarios = Funcionario::all();
-
         foreach($funcionarios as $funcionario)
         {
             $funcionario->idsetor = Setor::find($funcionario->idsetor)->strsetor;
@@ -56,7 +55,7 @@ class FuncionarioController extends Controller
         $profile_id = Profiles::returnDefault();
         $setores = Setor::pluck('strsetor', 'intsetorid');
         $strchave = Config::pluck('strvalor', 'strchave');
-        
+
         return view('funcionarios.add', [
             'profiles' => $profiles,
             'profile_id' => $profile_id,
@@ -77,38 +76,27 @@ class FuncionarioController extends Controller
             
             $data = $request->all();
 
-            $user = new User();
+            $func = new Funcionario();
             
-            $user->name = $data['name'];
-            $user->email = $data['email'];
-            $user->profile_id = $data['profile_id'];
-            $user->profession = $data['profession'];
-            $user->username = $data['username'];
-            $user->password = bcrypt($data['password']);
-
-            $user->r_auth = Auth::user()->id;
-
-            if ($request->image) {
+            $func->strnome = $data['strnome'];
+            $func->username = $data['username'];
+            $func->password = bcrypt($data['password']);
+            $func->idsetor = $data['idsetor'];
+            $func->strchave_config = $data['strchave_config'];
+            $func->profile_id = $data['profile_id'];
+            $func->idstatus = $data['idstatus'];
             
-                $img = time().'.'.$request->image->getClientOriginalExtension();
-
-                $request->image->move(public_path('images'), $img);
-
-                $user->image = $img;
-
-            }
-
-            $user->save();
+            $func->save();
 
             Session::flash('flash_success', "Usuário cadastrado com sucesso!");
 
-            Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' cadastrou o usuário: ' . $user->name));
+            Logs::cadastrar(Auth::user()->idfuncionario, (Auth::user()->strnome . ' cadastrou o usuário: ' . $func->strnome));
 
         } catch (Exception $e) {
             Session::flash('flash_error', "Erro ao cadastrar usuário!");
         }
 
-        return Redirect::to('/users');
+        return Redirect::to('/funcionarios');
     }
 
     /**
@@ -121,7 +109,7 @@ class FuncionarioController extends Controller
     {
         $logged = Auth::user();
 
-        $user = Funcionario::find($id);
+        $func = Funcionario::find($id);
 
         if (Permissions::permissaoModerador($logged)) {
             $profiles = Profiles::pluck('name', 'id');
@@ -129,9 +117,14 @@ class FuncionarioController extends Controller
             $profiles = Profiles::where('r_auth', $logged->id)->orWhere('default', 1)->pluck('name', 'id');
         }
 
-        return view('users.show', [
-            'user' => $user, 
-            'profiles' => $profiles
+        $setores = Setor::pluck('strsetor', 'intsetorid');
+        $strchave = Config::pluck('strvalor', 'strchave');
+
+        return view('funcionarios.show', [
+            'user' => $func,
+            'profiles' => $profiles,
+            'setores' => $setores,
+            'strchave' => $strchave,
         ]);
     }
 
@@ -145,7 +138,7 @@ class FuncionarioController extends Controller
     {
         $logged = Auth::user();
 
-        $user = Funcionario::find($id);
+        $func = Funcionario::find($id);
 
         if (Permissions::permissaoModerador($logged)) {
             $profiles = Profiles::pluck('name', 'id');
@@ -153,9 +146,14 @@ class FuncionarioController extends Controller
             $profiles = Profiles::where('r_auth', $logged->id)->orWhere('default', 1)->pluck('name', 'id');
         }
 
-        return view('users.edit', [
-            'user' => $user, 
-            'profiles' => $profiles
+        $setores = Setor::pluck('strsetor', 'intsetorid');
+        $strchave = Config::pluck('strvalor', 'strchave');
+        
+        return view('funcionarios.edit', [
+            'user' => $func, 
+            'profiles' => $profiles,
+            'setores' => $setores,
+            'strchave' => $strchave,
         ]);
     }
 
@@ -172,38 +170,32 @@ class FuncionarioController extends Controller
 
             $data = $request->all();
 
-            $user = Funcionario::find($data['id']);
+            $func = Funcionario::find($data['id']);
             
-            $user->name = $data['name'];
-            $user->email = $data['email'];
-            $user->profile_id = $data['profile_id'];
-            $user->profession = $data['profession'];
-            $user->username = $data['username'];
-
+            $func->strnome = $data['strnome'];
+            $func->username = $data['username'];
+            $func->idsetor = $data['idsetor'];
+            $func->strchave_config = $data['strchave_config'];
+            $func->profile_id = $data['profile_id'];
+            
+            if ($data['idstatus'] != 0){
+                $func->idstatus = $data['idstatus'];
+            }
             if ($data['password']) {
-                $user->password = bcrypt($data['password']);
+                $func->password = bcrypt($data['password']);
             }
 
-            if ($request->image) {
-            
-                $img = time().'.'.$request->image->getClientOriginalExtension();
-
-                $request->image->move(public_path('images'), $img);
-
-                $user->image = $img;
-            }
-
-            $user->save();
+            $func->save();
 
             Session::flash('flash_success', "Usuário atualizado com sucesso!");
 
-            Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' atualizou o usuário: ' . $user->name));
+            Logs::cadastrar(Auth::user()->idfuncionario, (Auth::user()->strnome . ' atualizou o usuário: ' . $func->strnome));
 
         } catch (Exception $e) {
             Session::flash('flash_error', "Erro ao atualizar usuário!");
         }
 
-        return Redirect::to('/users');
+        return Redirect::to('/funcionarios');
     }
 
     /**
@@ -220,7 +212,7 @@ class FuncionarioController extends Controller
 
             Session::flash('flash_success', "Usuário excluído com sucesso");
 
-            Logs::cadastrar(Auth::user()->id, (Auth::user()->name . ' excluiu o usuário ID: ' . $id));
+            Logs::cadastrar(Auth::user()->idfuncionario, (Auth::user()->strnome . ' excluiu o usuário ID: ' . $id));
 
         } catch (\Illuminate\Database\QueryException $e) {
 
@@ -231,6 +223,6 @@ class FuncionarioController extends Controller
             Session::flash('flash_error', "Erro ao excluir usuário!");
         }
 
-        return Redirect::to('/users');
+        return Redirect::to('/funcionarios');
     }
 }

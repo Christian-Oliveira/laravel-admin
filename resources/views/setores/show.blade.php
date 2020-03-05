@@ -5,7 +5,7 @@
 <div class="box">
 
     <div class="box-header">
-        <h3 class="box-title">Unidade #{{$unit->id}}</h3>
+        <h3 class="box-title">Setor #{{$setor->intsetorid}}</h3>
     </div>
 
     <div class="box-body">
@@ -14,8 +14,8 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <div class="input text">
-                        {!! Form::label('Tipo de Unidade') !!}
-                        {!! Form::text('type_unit', $unit->type_unit, ['class' => 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('Nome') !!}
+                        {!! Form::text('strsetor', $setor->strsetor, ['class' => 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="form-group">
                     <div class="input text">
                         {!! Form::label('Sigla') !!}
-                        {!! Form::text('initials', $unit->initials, ['class' => 'form-control', 'disabled' => true]) !!}
+                        {!! Form::text('strsigla', $setor->strsigla, ['class' => 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
             </div>
@@ -32,8 +32,8 @@
             <div class="col-md-10">
                 <div class="form-group">
                     <div class="input text">
-                        {!! Form::label('Nome') !!}
-                        {!! Form::text('name', $unit->name, ['class' => 'form-control', 'disabled' => true]) !!}
+                        {!! Form::label('Unidade') !!}
+                        {!! Form::text('idpolo', $setor->idpolo, ['class' => 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
             </div>
@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <div class="input text">
                         {!! Form::label('Ativo') !!}
-                        {!! Form::text('active', $unit->active, ['class' => 'form-control', 'disabled' => true]) !!}
+                        {!! Form::select('bolativo', [0=>'Inativo', 1=>'Ativo'], $setor->bolativo, ['class' => 'form-control', 'disabled' => true]) !!}
                     </div>
                 </div>
             </div>

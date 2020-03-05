@@ -5,45 +5,37 @@
 <div class="box">
 
     <div class="box-header">
-        <h3 class="box-title">Cadastrar Unidade</h3>
+        <h3 class="box-title">Cadastrar Setor</h3>
     </div>
 
-    {!! Form::open(['url' => 'units', 'method' => 'post', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
+    {!! Form::open(['url' => 'setores', 'method' => 'post', 'enctype' => 'multipart/form-data', 'accept-charset' => 'utf-8']) !!}
 
         <div class="box-body">
 
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-group">
                         <div class="input text required">
-                            {!! Form::label('Tipo de Unidade') !!}
-                            {!! Form::select('type_unit', [
-                                '------',
-                                'SEDE', 
-                                'UR', 
-                                'ULSAV', 
-                                'EAC',
-                                'BARREIRA'
-                            ], null, ['class' => 'form-control']) !!}
+                            {!! Form::label('Nome') !!}
+                            {!! Form::text('strsetor', null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
-                        <div class="input text">
+                        <div class="input text required">
                             {!! Form::label('Sigla') !!}
-                            {!! Form::text('initials', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('strsigla', null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <div class="col-md-10">
                     <div class="form-group">
-                        <div class="input text required">
-                            {!! Form::label('Nome') !!}
-                            {!! Form::text('name', null, ['class' => 'form-control']) !!}
+                        <div class="input text">
+                            {!! Form::label('Unidade') !!}
+                            {!! Form::select('idpolo', $units, null, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>
@@ -51,7 +43,7 @@
                     <div class="form-group">
                         <div class="input">
                             {!! Form::label('Ativo') !!}
-                            {!! Form::select('active', [0 => 'Não', 1 => 'Sim'], 1, ['class' => 'form-control']) !!}
+                            {!! Form::select('bolativo', [0 => 'Não', 1 => 'Sim'], 1, ['class' => 'form-control']) !!}
                         </div>
                     </div>
                 </div>

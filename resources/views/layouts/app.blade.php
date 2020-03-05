@@ -77,17 +77,17 @@
                         </a>
                     </li>
 
-                    <li id='sectors'>
-                        <a href="{{ URL('/') }}/setores">
-                            <i class="glyphicon glyphicon-list"></i>
-                            <span>Setores</span>
-                        </a>
-                    </li>
-
                     <li id='units'>
                         <a href="{{ URL('/') }}/polos">
                             <i class="glyphicon glyphicon-th-list"></i>
                             <span>Unidades Regionais</span> 
+                        </a>
+                    </li>
+
+                    <li id='sectors'>
+                        <a href="{{ URL('/') }}/setores">
+                            <i class="glyphicon glyphicon-list"></i>
+                            <span>Setores</span>
                         </a>
                     </li>
 
