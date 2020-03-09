@@ -56,9 +56,11 @@ class PoloController extends Controller
     public function show($id)
     {
         $unit = Polo::find($id);
+        $setores = Polo::find($unit->intpoloid)->setores;
 
         return view('polos.show', [
             'unit' => $unit, 
+            'setores' => $setores,
         ]);
     }
 

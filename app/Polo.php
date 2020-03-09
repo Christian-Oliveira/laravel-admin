@@ -16,6 +16,6 @@ class Polo extends Model
      */
     public function setores()
     {
-        return $this->hasMany('App\Setor');
+        return $this->hasMany('App\Setor', 'idpolo');
     }
 }
