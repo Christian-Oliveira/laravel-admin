@@ -42,18 +42,14 @@
                     
                     <td>
 
-                        <a href="{{ URL('/') }}/indicators/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default">
-                            <span class="glyphicon glyphicon-edit btn-sm"></span>
-                        </a>
+                        <a href="{{ URL('/') }}/indicators/{{$value->id}}/edit" alt="Editar" title="Editar" class="btn btn-default btn-sm glyphicon glyphicon-edit"></a>
 
-                        <a href="{{ URL('/') }}/indicators/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default">
-                            <span class="glyphicon glyphicon-share-alt btn-sm"></span>
-                        </a>
+                        <a href="{{ URL('/') }}/indicators/{{$value->id}}" alt="Visualizar" title="Visualizar" class="btn btn-default btn-sm glyphicon glyphicon-share-alt"></a>
 
                         <form method="POST" action="{{ route('indicators.destroy', $value->id) }}" accept-charset="UTF-8">
                             {!! csrf_field() !!}
                             {!! method_field('DELETE') !!}
-                            <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger glyphicon glyphicon-trash btn-sm">
+                            <button type="submit" onclick="return confirm('Tem certeza que quer deletar?')" class="btn btn-danger btn-sm glyphicon glyphicon-trash">
                         </form>
 
                     </td>

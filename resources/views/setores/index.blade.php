@@ -72,7 +72,6 @@
         <br><br>
 
         <div class="form-group text-right">
-            <a href="{{ URL::previous() }}" class="btn btn-default">Voltar</a>
             <a href="{{ URL('/') }}/setores/create" class="btn btn-primary bgpersonalizado">Cadastrar</a>
         </div>
 
