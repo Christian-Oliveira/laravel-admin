@@ -14,9 +14,8 @@ class CreateConfigTable extends Migration
     public function up()
     {
         Schema::create('tblconfig', function (Blueprint $table) {
-            $table->string('strchave')->unique();
+            $table->string('strchave', 100)->unique();
             $table->integer('strvalor');
-            $table->timestamps();
         });
     }
 

@@ -9,7 +9,7 @@ class Funcionario extends Authenticatable
 {
     use Notifiable;
 
-    protected $table = 'dbgeral.tblfuncionario';
+    protected $table = 'tblfuncionario';
     protected $primaryKey = 'idfuncionario';
     /**
      * The attributes that are mass assignable.

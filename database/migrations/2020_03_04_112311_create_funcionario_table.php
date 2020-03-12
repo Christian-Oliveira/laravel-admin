@@ -13,20 +13,15 @@ class CreateFuncionarioTable extends Migration
      */
     public function up()
     {
-        define('STATUS', [
-            0 => 'inativo',
-            1 => 'ativo'
-        ]);
-
         Schema::create('tblfuncionario', function (Blueprint $table) {
             $table->increments('idfuncionario');
-            $table->string('username')->unique();
+            $table->string('username', 100)->unique();
             $table->string('password');
             $table->string('strnome');
-            $table->string('strchave_config');
+            $table->string('strchave_config', 100);
             $table->integer('profile_id')->default(1);
             $table->integer('idsetor')->unsigned();
-            $table->enum('idstatus', STATUS);
+            $table->enum('idstatus', [0 => 'inativo', 1 => 'ativo']);
             $table->boolean('bolativo')->default(1);
             $table->rememberToken();
             $table->timestamps();

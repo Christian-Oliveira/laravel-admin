@@ -13,9 +13,9 @@ class FuncionarioTableSeeder extends Seeder
     public function run()
     {
         DB::table('tblfuncionario')->insert([
-            'username' => 'teste2',
-	        'password' => bcrypt('121314'),
-	        'strnome' => 'Teste2',
+            'username' => 'admin',
+	        'password' => bcrypt('123'),
+	        'strnome' => 'Administrador',
             'strchave_config' => 'id_admin_geral',
             'profile_id' => 3,
             'idsetor' => 1,

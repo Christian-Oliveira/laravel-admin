@@ -19,14 +19,5 @@ class SetorTableSeeder extends Seeder
 	        'created_at' => date('Y-m-d H:i:s'),
 	        'updated_at' => date('Y-m-d H:i:s')
         ]);
-        
-        DB::table('tblsetor')->insert([
-            'strsetor' => 'Materiais',
-	        'strsigla' => 'MAT',
-            'idpolo' => 1,
-            'bolativo' => 1,
-	        'created_at' => date('Y-m-d H:i:s'),
-	        'updated_at' => date('Y-m-d H:i:s')
-	    ]);
     }
 }

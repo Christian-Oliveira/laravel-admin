@@ -13,20 +13,12 @@ class CreatePoloTable extends Migration
      */
     public function up()
     {
-        define('TIPOPOLO', [
-            0 => 'SEDE',
-            1 => 'UR',
-            2 => 'ULSAV',
-            3 => 'EAC',
-            4 => 'BARREIRA'
-        ]);
-        
         Schema::create('tblpolo', function (Blueprint $table) {
             $table->increments('intpoloid');
             $table->string('strpolo');
             $table->integer('intenderecoid')->unsigned()->nullable();
             $table->enum('bolpublicar', [0=>'Não', 1=>'Sim']);
-            $table->enum('inttipopoloid', TIPOPOLO);
+            $table->enum('inttipopoloid', [0 => 'SEDE', 1 => 'UR', 2 => 'ULSAV', 3 => 'EAC', 4 => 'BARREIRA']);
             $table->boolean('bolativo')->default(1);
             $table->timestamps();
         });
